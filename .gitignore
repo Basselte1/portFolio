@@ -17,3 +17,7 @@ __pycache__/
 
 # Fichiers de migration compilés
 **/migrations/__pycache__/
+
+# Ignorer le dossier .idea/ de PyCharm et la base sqlite3
+.idea/
+db.sqlite3
