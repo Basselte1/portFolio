@@ -1,0 +1,293 @@
+<!-- templates/AdamIMC.html -->
+<!DOCTYPE html>
+<html lang="fr">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur IMC</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        /* === HEADER & NAV === */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 10px 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            width: 60px;
+            border-radius: 50%;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* === CONTAINER === */
+        .page {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        }
+
+        .container h1, h2 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .resultat {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.progress-bar {
+    height: 20px;
+    border-radius: 10px;
+    background: #e0e0e0;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0;
+    background-color: #00b894;
+    transition: width 0.7s ease, background-color 0.7s ease;
+}
+
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #f8f8f8;
+                margin-top: 10px;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="{% url 'home' %}"><img src="../media/images/mon-logo.png" alt="Logo" class="logo"></a>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <ul id="nav-links">
+            <li><a href="{% url 'home' %}">Accueil</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="page">
+    <div class="container">
+        <h2>À propos de l’IMC</h2>
+        <p>
+            L’Indice de Masse Corporelle (IMC) est un outil couramment utilisé pour évaluer la corpulence.
+            Il se calcule ainsi : <strong>IMC = poids (kg) / taille² (m)</strong>. Voici l’interprétation :
+        </p>
+        <ul>
+            <li><strong>&lt; 18,5 :</strong> Insuffisance pondérale</li>
+            <li><strong>18,5 - 24,9 :</strong> Corpulence normale</li>
+            <li><strong>25 - 29,9 :</strong> Surpoids</li>
+            <li><strong>≥ 30 :</strong> Obésité</li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1>Calculateur d'IMC</h1>
+        <form id="imc-form" onsubmit="calculerIMC(event)">
+            <label for="poids">Poids (kg):</label>
+            <input type="number" id="poids" step="0.1" placeholder="Entrez votre poids ex:75 ou 75.3" required>
+
+            <label for="taille">Taille (m):</label>
+            <input type="number" id="taille" step="0.01" placeholder="Entrez votre taille ex: 1.75" required>
+
+            <button type="submit">Calculer</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <div id="resultat" class="resultat"></div>
+        <br>
+
+        <button type="button" onclick="resetForm()">Réinitialiser</button>
+
+
+    </div>
+</div>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("nav-links");
+    menu.classList.toggle("show");
+}
+
+function calculerIMC(event) {
+    event.preventDefault();
+    const poids = parseFloat(document.getElementById('poids').value);
+    const taille = parseFloat(document.getElementById('taille').value);
+    const resultatDiv = document.getElementById('resultat');
+
+    if (poids > 0 && taille > 0) {
+        const imc = (poids / (taille * taille)).toFixed(2);
+        let interpretation = "";
+        let couleur = "";
+        let emoji = "";
+        let pourcentage = 0;
+
+        if (imc < 18.5) {
+            interpretation = "Insuffisance pondérale 😟";
+            couleur = "#f39c12";
+            pourcentage = 20;
+        } else if (imc < 25) {
+            interpretation = "Corpulence normale 😊";
+            couleur = "#27ae60";
+            pourcentage = 50;
+        } else if (imc < 30) {
+            interpretation = "Surpoids 😐";
+            couleur = "#e67e22";
+            pourcentage = 75;
+        } else {
+            interpretation = "Obésité 😟";
+            couleur = "#c0392b";
+            pourcentage = 100;
+        }
+
+        resultatDiv.style.backgroundColor = couleur;
+        resultatDiv.style.color = "#fff";
+        resultatDiv.innerHTML = `
+            Votre IMC est <strong>${imc}</strong><br>${interpretation}
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: ${pourcentage}%; background-color: ${couleur};"></div>
+            </div>
+        `;
+
+        // 🔽 Ajoute les conseils ici
+        let conseil = "";
+        if (imc < 18.5) {
+            conseil = "Essayez de consulter un nutritionniste pour adapter votre alimentation.";
+        } else if (imc < 25) {
+            conseil = "Continuez vos bonnes habitude !";
+        } else if (imc < 30) {
+            conseil = "Essayez de pratiquer une activité physique régulière.";
+        } else {
+            conseil = "Prenez rendez-vous avec un professionnel de santé pour un suivi.";
+        }
+
+        resultatDiv.innerHTML += `<p style="margin-top:10px;">${conseil}</p>`;
+    } else {
+        resultatDiv.style.backgroundColor = "#e74c3c";
+        resultatDiv.style.color = "#fff";
+        resultatDiv.innerHTML = "⚠️ Veuillez entrer des valeurs valides.";
+    }
+
+}
+
+    function resetForm() {
+    document.getElementById('poids').value = "";
+    document.getElementById('taille').value = "";
+    const resultatDiv = document.getElementById('resultat');
+    resultatDiv.innerHTML = "";
+    resultatDiv.style.backgroundColor = "transparent";
+}
+
+</script>
+
+</body>
+</html>
