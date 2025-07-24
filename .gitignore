@@ -1,0 +1,19 @@
+# Environnement virtuel
+.venv/
+
+# Fichiers compilés Python
+__pycache__/
+*.py[cod]
+
+# Base de données SQLite
+*.sqlite3
+
+# Fichiers log
+*.log
+
+# Répertoires d'IDE
+.idea/
+.vscode/
+
+# Fichiers de migration compilés
+**/migrations/__pycache__/
