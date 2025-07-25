@@ -28,7 +28,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 ADMIN_EMAIL = 'edjabeadam1@gmail.com'  #l'email de l'administrateur
 
-ALLOWED_HOSTS = ["portfolio-rb8s.onrender.com,localhost,127.0.0.1"]
+ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
+
 
 
 
