@@ -28,7 +28,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 ADMIN_EMAIL = 'edjabeadam1@gmail.com'  #l'email de l'administrateur
 
-#ALLOWED_HOSTS = ['127.0.0.1','localhost','192.168.241.173']
+ALLOWED_HOSTS = ["portfolio-rb8s.onrender.com,localhost,127.0.0.1"]
+
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
