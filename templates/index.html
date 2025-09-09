@@ -122,13 +122,6 @@ header {
     margin-left:auto;
     background-color: #fff;
 }
-.heure {
-    display:flex;
-    justify-content:right;
-    margin-bottom:-20px;
-    font-weight:bold;
-    color: #5c70de; /*  #6c757d */
-}
 
 /* navigation */
 nav {
@@ -1177,7 +1170,7 @@ nav .menu-icon {
 
 <div class="entete" id="home">
     <header>
-        <a class="heure"> {{ date|date:"d F Y H:i:s" }} </a>
+        <!--a class="heure"> {{ date|date:"d F Y H:i:s" }} --->
         <nav>
 
             <a href="{% url 'home' %}"><img src="../media/images/mon-logo.png" alt="logo de l'entreprise" class="logo" style="border-radius:30px; width: 90px;"></a>
@@ -1249,9 +1242,8 @@ nav .menu-icon {
                     <p class="text-p"> Nous sommes specialises dans la prestation des services informatique plus precisement
                         le developpement d'application web, application mobile, site internet et logiciel desktop en utilisant les dernieres technologies.
                         Que vous ayez besoins d'une application pour votre entreprise, votre produit, ou votre service, nous sommes present pour atteindre vos objectifs.
-                        Decouvrez nos realisations pour en savoir plus sur comment nous pouvons vous aider à reussir.
+                        Decouvrez nos realisations pour en savoir plus sur comment nous pouvons vous aider à reussir.</p>
 
-                    </p>
                     <div class="social-link-list">
                         <a href="#" class="social-link"><i class="fa-brands
                             fa-facebook"></i></a>
@@ -1386,7 +1378,7 @@ nav .menu-icon {
             <div class="subtitle">INTRANET, EXTRANET</div>
             <div class="sous-titre">
             <div class="tech">PHP, Python</div>
-            <div class="tech">MS SQL, MySQL, sQlite</div>
+            <div class="tech">MySQL, sQlite</div>
             </div>
         </div>
         <div class="service">
@@ -1394,23 +1386,23 @@ nav .menu-icon {
             <div class="subtitle">WEBDESIGN</div>
             <div class="sous-titre">
             <div class="tech">HTML 5, CSS 3, Javascript,Django</div>
-            <div class="tech">Bootstrap, JQuery, Wordpress,laravel</div>
+            <div class="tech">Bootstrap, Wordpress</div>
             </div>
         </div>
         <div class="service">
             <div class="title">LOGICIELS</div>
             <div class="subtitle">DÉVELOPPEMENT</div>
             <div class="sous-titre">
-            <div class="tech">Delphi, Python, C#</div>
-            <div class="tech">VBA</div>
+            <div class="tech"> Python, Visual Basic.net</div>
+            <div class="tech">Tkinter</div>
             </div>
         </div>
       <div class="service">
             <div class="title">LOGICIELS</div>
             <div class="subtitle">mobiles</div>
             <div class="sous-titre">
-            <div class="tech">java, JavaScript Kotlin</div>
-            <div class="tech">Flutter,Ionic</div>
+            <div class="tech">java, Python</div>
+            <div class="tech">Kivy</div>
             </div>
       </div>
         </div>
@@ -1432,8 +1424,7 @@ nav .menu-icon {
         <div class="service-p">
             <i class="icon">🌐</i>
             <h2>APPLICATIONS <span class="blue">WEB</span></h2>
-            <p class="style-p"> FONPROStages - Gestion de demande de services (GDS) - Services des énergies d'Yverdon -
-                Services d'entraide bénévole.</p>
+            <p class="style-p"> Gestion de demande de services (GDS)- Modern Task Manager </p>
         </div>
 
          <div class="service-p">
@@ -1445,7 +1436,7 @@ nav .menu-icon {
         <div class="service-p">
             <i class="icon">⚙️</i>
             <h2>LOGICIELS <span class="blue">DESKTOP</span></h2>
-            <p class="style-p">UK Solid and Gaseous Biomass Carbon Calculator - Elogia - CISMail - Congress Up - systeme de convertion de chiffre en lettre et lettre en chiffre sur une facture (convert Fact)</p>
+            <p class="style-p"> Application des gestion de note D'etudiant - systeme de convertion de chiffre en lettre et lettre en chiffre sur une facture (convert Fact)</p>
         </div>
     </section>
 </div>
