@@ -10,7 +10,7 @@ from portfolio.models import Service, Projet, Client, Technologie, MessageContac
 
 # Create your views here.
 
-#function pour la page d'accueil
+#fonnction pour la page d'accueil
 
 
 def home(request):
@@ -62,6 +62,7 @@ def home(request):
                 [settings.ADMIN_EMAIL],
                 fail_silently=False
             )
+            print("envoir reussi")
 
             # ✅ Envoi de confirmation à l’utilisateur
             sujet_user = "Confirmation de réception de votre message"
