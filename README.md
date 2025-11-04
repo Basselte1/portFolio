@@ -1,5 +1,5 @@
 """
-  actuelement je rencontre un probleme donc la reparation est en cour....
+  actuelement je rencontre un probleme dont la reparation est en cour....
 ""
 
 Bienvenue dans mon portfolio professionnel, un site web que j’ai développé afin de présenter mes compétences, mes services, mes projets et permettre aux visiteurs de me contacter facilement.
