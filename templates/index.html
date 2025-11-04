@@ -105,10 +105,10 @@ img {
    bottom:0;
    width:100%;
    height:100hv;
-   background:url("/static/images/developpement_apps.jpg") center no-repeat;
+   background:url("../images/developpement_apps.jpg") center no-repeat;
    background-size: cover;
    background-attachment: fixed;
-   z-index:-100; /* placer image en-dessous*/
+   z-index:-1; /* placer image en-dessous du contenu*/
 }
 
 .entete {
@@ -1235,7 +1235,7 @@ nav .menu-icon {
             <div class="section-content">
                 <div class="about-image-wrapper">
 
-                    <img src="/static/images/image-apropos.jpg" alt="About Us" class="about-image">
+                    <img src="{% static 'images/image-apropos.jpg' %}" alt="About Us" class="about-image">
                 </div>
                 <div class="about-details">
                     <h2 class="section-title">À Propos de Nous</h2>
@@ -1262,7 +1262,7 @@ nav .menu-icon {
 
   <div class="menu-list">
     <div class="menu-item">
-      <img src="../media/images/logo-choosen-generation.jpg" alt="Logo Jeoline" class="menu-image">
+      <img src="{% static 'images/logo-choosen-generation.jpg' %}" alt="Logo Jeoline" class="menu-image">
       <div class="menu-details">
           <h3 class="name" style="margin-top:-10px;margin-bottom:-75px;"><a href="https://gsb-thechosengeneration.com/">Institue secondaire</a></h3>
         <p class="text" style="color:#000;"> Lycée d'Enseignement Secondaire Général Bilingue depuis quelques années maintenant, situe dans la littorale moungo.</p>
@@ -1270,7 +1270,7 @@ nav .menu-icon {
     </div>
 
     <div class="menu-item">
-      <img src="../media/images/jeolinecorporates.png" alt="Logo Jeoline" class="menu-image">
+      <img src="{% static 'images/jeolinecorporates.png' %}" alt="Logo Jeoline" class="menu-image">
       <div class="menu-details">
         <h3 class="name" style="margin-top:15px;margin-bottom:-70px;color:#000;">Societe prestation</h3>
         <p class="text" style="color:#000;"> Societe qui offre des prestations informatiques en developpement d'application</p>
@@ -1339,20 +1339,20 @@ nav .menu-icon {
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
 
-                <div class="swiper-slide"><img src="{% static 'images/logo-django.webp' %}" alt="Logo 2" style="width:50px;"></div>
-                <div class="swiper-slide"><img src="{% static 'images/css.webp' %}" alt="Logo 3"></div>
-                <div class="swiper-slide"><img src="{% static 'images/html.webp' %}" alt="Logo 4"></div>
-                <div class="swiper-slide"><img src="{% static 'images/java.png' %}" alt="Logo 5"></div>
-                <div class="swiper-slide"><img src="{% static 'images/php.webp' %}" alt="Logo 6"></div>
-                <div class="swiper-slide"><img src="{% static 'images/wampserver.webp' %}" alt="Logo 6"></div>
-                <div class="swiper-slide"><img src="{% static 'images/apache.webp' %}" alt="Logo 6"></div>
-                <div class="swiper-slide"><img src="{% static 'images/dell.webp' %}" alt="Logo 6"></div>
-                <div class="swiper-slide"><img src="{% static 'images/microsoft.webp' %}" alt="Logo 6"></div>
-                <div class="swiper-slide"><img src="{% static 'images/logo-python.webp' %}" alt="Logo 6"></div>
-                <div class="swiper-slide"><img src="{% static 'images/logo-boostrap.webp' %}" alt="Logo 6"></div>
-                <div class="swiper-slide"><img src="{% static 'images/wordpress.webp' %}" alt="Logo 6"></div>
-                <div class="swiper-slide"><img src="{% static 'images/logo_mysql.webp' %}" alt="Logo 6"></div>
-                <div class="swiper-slide"><img src="{% static 'images/logo-js.jpeg' %}" alt="Logo 6"></div>
+                <div class="swiper-slide"><img src="{% static 'images/logo-django.webp %}" alt="Logo 2" style="width:50px;"></div>
+                <div class="swiper-slide"><img src="{% static 'images/css.webp %}" alt="Logo 3"></div>
+                <div class="swiper-slide"><img src="{% static 'images/html.webp %}" alt="Logo 4"></div>
+                <div class="swiper-slide"><img src="{% static 'images/java.png %}" alt="Logo 5"></div>
+                <div class="swiper-slide"><img src="{% static 'images/php.webp %}" alt="Logo 6"></div>
+                <div class="swiper-slide"><img src="{% static 'images/wampserver.webp %}" alt="Logo 6"></div>
+                <div class="swiper-slide"><img src="{% static 'images/apache.webp %}" alt="Logo 6"></div>
+                <div class="swiper-slide"><img src="{% static 'images/dell.webp %}" alt="Logo 6"></div>
+                <div class="swiper-slide"><img src="{% static 'images/microsoft.webp %}" alt="Logo 6"></div>
+                <div class="swiper-slide"><img src="{% static 'images/logo-python.webp %}" alt="Logo 6"></div>
+                <div class="swiper-slide"><img src="{% static 'images/logo-boostrap.webp %}" alt="Logo 6"></div>
+                <div class="swiper-slide"><img src="{% static 'images/wordpress.webp %}" alt="Logo 6"></div>
+                <div class="swiper-slide"><img src="{% static 'images/logo_mysql.webp %}" alt="Logo 6"></div>
+                <div class="swiper-slide"><img src="{% static 'images/logo-js.jpeg %}" alt="Logo 6"></div>
 
             </div>
              <!-- If we need pagination ---------------------------------->

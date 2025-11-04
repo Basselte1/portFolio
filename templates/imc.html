@@ -166,7 +166,7 @@
 
 <header>
     <nav>
-        <a href="{% url 'home' %}"><img src="../media/images/mon-logo.png" alt="Logo" class="logo"></a>
+        <a href="{% url 'home' %}"><img src="{% static 'images/mon-logo.png' %}" alt="Logo" class="logo"></a>
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <ul id="nav-links">
             <li><a href="{% url 'home' %}">Accueil</a></li>
