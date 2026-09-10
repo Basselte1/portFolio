@@ -1,7 +1,6 @@
 from django.db import models
 
 class MessageContact(models.Model):
-    objects = None
     nom = models.CharField(max_length=100)
     adresse = models.TextField()
     email = models.EmailField()
@@ -18,7 +17,6 @@ class MessageContact(models.Model):
 
 # Modèle Catégorie
 class Projet(models.Model):
-    objects = None
     titre = models.CharField(max_length=255)
     description = models.TextField(default= "")
     date_creation =models.DateField(auto_now_add=True)
@@ -43,7 +41,6 @@ def get_absolute_url():
 
 
 class Service(models.Model):
-    objects = None
     nom = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to= 'images', blank=True, null=True)
@@ -58,7 +55,6 @@ class Service(models.Model):
         return self.nom
 
 class Client(models.Model):
-    objects = None
     nom = models.CharField(max_length=255 , verbose_name='Nom client')
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to= 'images', blank=True, null=True)
@@ -68,7 +64,6 @@ class Client(models.Model):
         return self.nom
 
 class Technologie(models.Model):
-    objects = None
     nom = models.CharField(max_length=255, verbose_name='Nom technologies')
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to= 'images', blank=True, null=True)
