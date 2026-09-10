@@ -26,7 +26,7 @@ admin.site.site_title = "Dashboard"
 admin.site.index_title = "Welcome Admin"
 
 from config import settings
-from portfolio.views import apropos, projet, clients, technologies, home, imc
+from portfolio.views import apropos, projet, clients, technologies, home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,7 +34,6 @@ urlpatterns = [
 
     path('apropos/', apropos, name='apropos'),
 
-    path('imc/', imc, name='imc'),
     path('projet/', projet, name='projet'),
     path('client/', clients, name='client'),
 

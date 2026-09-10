@@ -1,0 +1,221 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nouveau message</title>
+</head>
+
+<!--Ce template utilise des styles CSS directement dans les balises (style="..."). C'est volontaire : les clients mail 
+               sont beaucoup moins fiables que les navigateurs pour le CSS moderne.-->
+<body style="
+    margin:0;
+    padding:0;
+    background-color:#f4f6f8;
+    font-family:Arial, Helvetica, sans-serif;">
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0"
+       style="background-color:#f4f6f8; padding:30px 10px;">
+
+    <tr>
+        <td align="center">
+
+            <!-- Conteneur principal -->
+            <table width="600" cellpadding="0" cellspacing="0" border="0"
+                   style="
+                   max-width:600px;
+                   width:100%;
+                   background-color:#ffffff;
+                   border-radius:10px;
+                   overflow:hidden;
+                   ">
+
+                <!-- En-tête -->
+                <tr>
+                    <td style="
+                        background-color:#0d6efd;
+                        padding:25px;
+                        text-align:center;
+                        color:#ffffff;
+                    ">
+
+                        <h1 style="
+                            margin:0;
+                            font-size:24px;
+                        ">
+                            Nouveau message
+                        </h1>
+
+                        <p style="
+                            margin:8px 0 0;
+                            font-size:14px;
+                        ">
+                            Message reçu depuis votre site web
+                        </p>
+
+                    </td>
+                </tr>
+
+
+                <!-- Contenu -->
+                <tr>
+                    <td style="padding:30px;">
+
+                        <p style="
+                            font-size:16px;
+                            color:#333333;
+                        ">
+                            Bonjour,
+                        </p>
+
+                        <p style="
+                            font-size:15px;
+                            line-height:1.6;
+                            color:#555555;
+                        ">
+                            Vous avez reçu un nouveau message depuis
+                            le formulaire de contact de votre site.
+                        </p>
+
+
+                        <!-- Informations client -->
+                        <table width="100%"
+                               cellpadding="10"
+                               cellspacing="0"
+                               style="
+                               border-collapse:collapse;
+                               margin-top:20px;
+                               ">
+
+                            <tr>
+                                <td style="
+                                    background:#f8f9fa;
+                                    font-weight:bold;
+                                    width:35%;
+                                    color:#333333;
+                                ">
+                                    Nom
+                                </td>
+
+                                <td style="
+                                    background:#f8f9fa;
+                                    color:#555555;
+                                ">
+                                    {{ nom }}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="
+                                    font-weight:bold;
+                                    color:#333333;
+                                ">
+                                    Email
+                                </td>
+
+                                <td style="color:#555555;">
+                                    {{ email }}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="
+                                    background:#f8f9fa;
+                                    font-weight:bold;
+                                    color:#333333;
+                                ">
+                                    Téléphone
+                                </td>
+
+                                <td style="
+                                    background:#f8f9fa;
+                                    color:#555555;
+                                ">
+                                    {{ telephone }}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="
+                                    font-weight:bold;
+                                    color:#333333;">
+                                    Adresse
+                                </td>
+
+                                <td style="color:#555555;">
+                                    {{ adresse }}
+                                </td>
+                            </tr>
+
+                        </table>
+
+
+                        <!-- Message -->
+                        <div style="
+                            margin-top:25px;
+                            padding:20px;
+                            background-color:#f8f9fa;
+                            border-left:4px solid #0d6efd;">
+
+                            <p style="
+                                margin:0 0 10px;
+                                font-weight:bold;
+                                color:#333333;">
+                                Message du client
+                            </p>
+
+                            <p style="
+                                margin:0;
+                                line-height:1.6;
+                                color:#555555;
+                            ">
+                                {{ message }}
+                            </p>
+
+                        </div>
+
+
+                        <p style="
+                            margin-top:30px;
+                            font-size:14px;
+                            color:#777777;
+                        ">
+                            Cet email a été généré automatiquement
+                            par votre site web.
+                        </p>
+
+                    </td>
+                </tr>
+
+
+                <!-- Pied de page -->
+                <tr>
+                    <td style="
+                        background-color:#f1f3f5;
+                        padding:20px;
+                        text-align:center;
+                    ">
+
+                        <p style="
+                            margin:0;
+                            font-size:13px;
+                            color:#777777;
+                        ">
+                            © {{ annee }} {{ nom_developpeur }}
+                        </p>
+
+                    </td>
+                </tr>
+
+            </table>
+
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>
+```

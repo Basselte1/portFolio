@@ -1,0 +1,942 @@
+/* importing google font */
+@import url('https://fonts.googleapis.com/css2?family=Miniver&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    /* colors */
+    --white-color: #fff;
+    --dark-color: #252525;
+    --primary-color: #3b141c;
+    --secondary-color: #f3961c;
+    --light-pink-color: #ccc;
+
+    /* font size */
+    --font-size-s: 0.9rem;
+    --font-size-n: 1rem;
+    --font-size-m: 1.12rem;
+    --font-size-l: 1.5rem;
+    --font-size-xl: 2rem;
+    --font-size-xxl: 2.3rem;
+
+    /* font weight */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* border radius */
+    --border-radius-s: 8px;
+    --border-radius-m: 30px;
+    --border-radius-circle: 50%;
+
+    /* site max width */
+    --site-max-width: 1300px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FIX #2 : Image de fond visible après le footer
+   ═══════════════════════════════════════════════════════════════
+   Le html/body reçoivent une couleur de fond de secours identique
+   au footer. Ainsi, même en cas de rebond de défilement (overscroll
+   sur tablette/mobile), on ne voit plus l'image "flotter" sous la
+   page : on voit la couleur sombre du footer, ce qui est cohérent.
+*/
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    background-color: var(--dark-color);
+    overflow-x: hidden; /* empêche tout débordement horizontal parasite */
+}
+
+/* style for whole site */
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+img {
+    width: 100%;
+    display: block;
+}
+
+.section-content {
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: var(--site-max-width);
+}
+
+.section-title {
+    text-align: center;
+    padding: 60px 0 100px;
+    text-transform: uppercase;
+    font-size: var(--font-size-xl);
+}
+.section-title::after {
+    content: "";
+    width: 80px;
+    height: 5px;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: var(--border-radius-s);
+    background: var(--secondary-color);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FIX #2 (suite) : L'overlay de fond
+   ═══════════════════════════════════════════════════════════════
+   On garde le fixed + z-index négatif (c'est voulu pour un fond
+   "parallax"), mais on s'assure qu'il ne dépasse jamais et qu'il
+   reste bien DERRIÈRE tout, y compris en cas d'overscroll grâce
+   au background-color de body défini plus haut.
+*/
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: url('../images/developpement_apps.jpg') center no-repeat;
+    background-size: cover;
+    z-index: -100;
+    pointer-events: none; /* évite d'intercepter des clics par erreur */
+}
+
+.entete {
+    background-color: #fff;
+}
+
+header {
+    max-width: 90%;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+/* navigation */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    padding: 30px 0 10px;
+}
+
+nav .menu-icon {
+    cursor: pointer;
+    display: none;
+    font-size: 30px;
+    color: #333;
+}
+
+nav ul {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 30px;
+    transition: all 0.3s ease;
+}
+
+nav ul li {
+    list-style: none;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #6c757d;
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    box-shadow: 0 0 10px #000;
+    border-radius: var(--border-radius-m);
+}
+
+/* PARTIE SECTION HERO */
+.text {
+    padding: 70px 0;
+    color: #fff;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.text h3 {
+    font-size: 55px;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+.text h3 span {
+    color: #fff;
+}
+.text p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+.text a {
+    padding: 10px 18px;
+    border: 2px solid transparent;
+    color: var(--primary-color);
+    border-radius: var(--border-radius-m);
+    background: #2ec8fb;
+    font-weight: var(--font-weight-medium);
+    transition: 0.3s ease;
+}
+.text .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 23px;
+}
+.text .contact-us {
+    color: var(--white-color);
+    border-color: var(--white-color);
+    background: transparent;
+}
+.contact-us:hover {
+    color: var(--primary-color);
+    border-color: #2ec8fb;
+    background: #2ec8fb;
+}
+.connect:hover {
+    color: #fff;
+    border-color: var(--white-color);
+    background: transparent;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   About section
+   ═══════════════════════════════════════════════════════════════ */
+.about-section {
+    padding: 120px 0;
+    background: var(--light-pink-color);
+}
+.about-section .section-content {
+    display: flex;
+    flex-wrap: wrap;           /* AJOUT : permet le passage à la ligne proprement */
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+.about-section .about-image-wrapper {
+    flex: 0 0 auto;
+}
+.about-section .about-image-wrapper .about-image {
+    width: 320px;               /* réduit un peu pour mieux tenir sur tablette */
+    height: 320px;
+    object-fit: cover;
+    border-radius: var(--border-radius-circle);
+}
+.about-section .about-details .section-title {
+    padding: 0;
+}
+.about-section .about-details {
+    flex: 1 1 400px;            /* CHANGEMENT : flexible au lieu de max-width:50% fixe */
+    max-width: 600px;
+}
+.about-section .about-details .text-p {
+    line-height: 30px;
+    margin: 30px 0;
+    text-align: center;
+    font-size: var(--font-size-m);
+}
+.about-section .social-link-list {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+.about-section .social-link-list .social-link {
+    color: var(--primary-color);
+    font-size: var(--font-size-l);
+    transition: 0.2s ease;
+}
+.about-section .social-link-list .social-link:hover {
+    color: var(--secondary-color);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Section Swiper (technologies)
+   ═══════════════════════════════════════════════════════════════ */
+.technologies {
+    padding: 20px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+.technologies h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+.subtitle2 {
+    font-size: 14px;
+    color: #2a5d8d;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+.titre {
+    margin: 20px;
+    text-align: center;
+}
+.swiper {
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+}
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.swiper-slide img {
+    max-width: 100px;
+    width: auto;
+    height: auto;
+    filter: grayscale(50%);
+    transition: filter 0.3s ease-in-out;
+}
+.swiper-slide img:hover {
+    filter: grayscale(0%);
+}
+.swiper-pagination {
+    position: relative;
+    bottom: 30px;
+}
+.swiper-button-prev,
+.swiper-button-next {
+    color: #333;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    color: #2a5d8d;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Divers (home hero)
+   ═══════════════════════════════════════════════════════════════ */
+#home h1 {
+    margin: auto;
+    height: 400px;
+    color: #000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+}
+#home {
+    animation: fadeIn 2s ease-in;
+}
+.accueil {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+.accueil img {
+    margin: 20px;
+}
+p {
+    margin-left: 10px;
+    margin-top: 10px;
+    color: #000;
+}
+h1 {
+    margin-top: 30px;
+}
+h3 {
+    font-style: oblique;
+    margin-top: 80px;
+    color: #000;
+}
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.image-box {
+    text-align: center;
+    width: 200px;
+    background: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes neonGlow {
+    0% { text-shadow: 0 0 5px #000, 0 0 10px #000, 0 0 20px #000; }
+    50% { text-shadow: 0 0 10px #000, 0 0 20px #000, 0 0 40px #000; }
+    100% { text-shadow: 0 0 5px #000, 0 0 10px #000, 0 0 20px #000; }
+}
+.neon-animated {
+    color: #000;
+    font-size: 2em;
+    font-weight: bold;
+    animation: neonGlow 1s infinite alternate;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FIX #1 : Section "Expériences Professionnelles" (menu-section)
+   ═══════════════════════════════════════════════════════════════
+   ANCIEN PROBLÈME :
+     - gap: 110px énorme => sur tablette, un seul item tenait par
+       ligne, ce qui n'est pas le vrai bug de superposition, MAIS
+       combiné aux marges négatives inline (style="margin-top:-75px")
+       dans le HTML, les cartes se chevauchaient verticalement dès
+       qu'elles passaient à la ligne.
+   SOLUTION :
+     - On utilise CSS GRID (plus prévisible que flex+gap géant).
+     - On fixe une hauteur minimale au lieu d'une hauteur fixe.
+     - On neutralise l'effet des marges négatives inline du HTML
+       en les surchargeant ici avec !important (solution de secours
+       si vous ne pouvez pas modifier le HTML tout de suite).
+*/
+.menu-section {
+    background: #ced4da;
+    padding: 2rem;
+    color: #000;
+}
+
+.menu-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);   /* 3 colonnes sur desktop */
+    gap: 30px;                                /* gap raisonnable, plus de 110px ! */
+    justify-items: stretch;
+}
+
+.menu-item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 220px;      /* CHANGEMENT : min-height au lieu de height fixe */
+    height: auto;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.menu-item:hover {
+    transform: translateY(-8px);
+}
+
+.menu-image {
+    width: 80px;             /* CHANGEMENT : taille fixe raisonnable au lieu de 100% */
+    height: 80px;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+/* Neutralise les marges négatives inline du HTML (voir note plus bas) */
+.menu-item .name {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0.5rem 0 !important;   /* écrase le style inline négatif */
+    color: #000 !important;
+}
+
+.menu-details {
+    overflow-wrap: break-word;
+    max-height: none;
+    overflow-y: visible;
+    width: 100%;
+}
+
+.menu-details .text {
+    font-size: 0.875rem;
+    color: #333;
+    margin-top: 0 !important;      /* écrase margin-top:-60px */
+    line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Section "Services" (nos services)
+   ═══════════════════════════════════════════════════════════════
+   ANCIEN PROBLÈME : margin-top: -100px sur .service-p provoquait
+   un chevauchement dès que les cartes passaient sur 2 lignes.
+   SOLUTION : on retire cette marge négative et on gère l'espacement
+   normalement avec le gap du conteneur flex.
+*/
+.sect {
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+    background: url('../images/developpementweb_kUIljaQ.jpg') no-repeat center/cover;
+}
+
+.hero {
+    position: relative;
+    min-height: 300px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px 20px;
+}
+
+.container-p {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+.container-p h1 {
+    color: #58595b;
+    margin-bottom: 0;
+}
+.container-p h1::after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 5px;
+    margin: 10px auto 0;
+    border-radius: var(--border-radius-s);
+    background: var(--secondary-color);
+}
+.container-p h3 {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #58595b;
+}
+.container-p p {
+    color: #909293;
+    line-height: 25px;
+    font-size: var(--font-size-m);
+    margin-bottom: 20px;
+}
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;      /* AJOUT : cartes de même hauteur par ligne */
+    gap: 30px;
+    padding: 50px 20px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.service-p {
+    flex: 1 1 250px;
+    max-width: 300px;
+    padding: 20px;
+    margin-top: 0;              /* FIX : suppression du margin-top: -100px */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: white;
+    color: #58595b;
+    box-sizing: border-box;
+    transition: transform 0.4s ease;
+}
+.service-p:hover {
+    transform: translateY(-8px);
+}
+
+.icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+.style-p {
+    line-height: 25px;
+    color: #58595b;
+}
+.blue {
+    color: #337ab7;
+    font-weight: bold;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Section Technologies (blocs colorés)
+   ═══════════════════════════════════════════════════════════════ */
+.techno {
+    font-family: Arial, sans-serif;
+    background-color: #ddd;
+    padding: 20px 0;
+}
+.techno .container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+}
+.techno .section-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    gap: 20px;
+}
+.service {
+    flex: 1 1 250px;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    min-width: 250px;
+}
+.service:nth-child(1) { background: #3d3833; }
+.service:nth-child(2) { background: #b77e5b; }
+.service:nth-child(3) { background: #6e6a66; }
+.service:nth-child(4) { background: #aa8771; }
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+.subtitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+    background: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.tech {
+    font-size: 14px;
+    margin: 5px 0;
+    opacity: 0.9;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 10px;
+    text-align: center;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Contact section
+   ═══════════════════════════════════════════════════════════════ */
+.contact-section {
+    padding: 50px 0 100px;
+    background: var(--light-pink-color);
+}
+.contact-section .section-content {
+    display: flex;
+    flex-wrap: wrap;             /* CHANGEMENT : nowrap => wrap pour tablette/mobile */
+    gap: 32px;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: #e2e2e2;
+    padding: 30px;
+    border-radius: 30px;
+}
+.contact-info-list {
+    flex: 1 1 300px;
+    list-style: none;
+    padding: 0;
+    min-width: 280px;
+}
+.contact-info {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    align-items: center;
+}
+.contact-form {
+    flex: 1 1 300px;
+    min-width: 280px;
+    max-width: 500px;
+}
+.contact-form .form-input {
+    width: 100%;
+    height: 50px;
+    padding: 0 12px;
+    margin-bottom: 16px;
+    background: var(--white-color);
+    border-radius: var(--border-radius-s);
+    border: 1px solid #fff;
+}
+.contact-form textarea.form-input {
+    height: 100px;
+    padding: 12px;
+    resize: vertical;
+}
+.contact-form .submit-button {
+    padding: 10px 26px;
+    color: var(--white-color);
+    background: var(--primary-color);
+    border-radius: var(--border-radius-m);
+    border: 1px solid var(--primary-color);
+    transition: 0.3s ease;
+}
+.contact-form .submit-button:hover {
+    color: var(--primary-color);
+    background: transparent;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Footer
+   ═══════════════════════════════════════════════════════════════ */
+.footer-section {
+    padding: 30px;
+    background: var(--dark-color);
+}
+.footer-section :where(.copyright-text, .social-link, .policy-link) {
+    color: var(--white-color);
+    transition: 0.2s ease;
+}
+.footer-section .section-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-section .social-link-list {
+    display: flex;
+    gap: 25px;
+}
+.footer-section .social-link-list .social-link {
+    font-size: var(--font-size-l);
+}
+.footer-section .social-link-list .social-link:hover,
+.footer-section .policy-text .policy-link:hover {
+    color: var(--secondary-color);
+}
+.footer-section .policy-text .separator {
+    margin: 0 5px;
+    color: #fff;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    z-index: 100;
+    padding-top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+    margin: auto;
+    background-color: white;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    text-align: center;
+}
+.close {
+    color: red;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close:hover {
+    color: black;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ══════════════════  MEDIA QUERIES (ORDRE PROPRE)  ═══════════════════════
+   ═══════════════════════════════════════════════════════════════════════
+   Organisées du plus large au plus étroit, SANS chevauchement de règles
+   contradictoires. Chaque breakpoint gère un intervalle clair :
+     - Tablette large / petit desktop : ≤ 1024px
+     - Tablette portrait :              ≤ 900px
+     - Mobile large :                   ≤ 768px
+     - Mobile standard :                ≤ 640px
+     - Petit mobile :                   ≤ 480px
+*/
+
+/* ───────────────────────── ≤ 1024px : TABLETTE ───────────────────────── */
+@media screen and (max-width: 1024px) {
+
+    /* FIX PRINCIPAL #1 : passage à 2 colonnes au lieu de 3, proprement,
+       via grid-template-columns (pas de marges négatives => pas de
+       chevauchement possible) */
+    .menu-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .services {
+        gap: 20px;
+    }
+    .service-p {
+        flex: 1 1 45%;
+        max-width: 45%;
+    }
+
+    .about-section .about-image-wrapper .about-image {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+/* ───────────────────────── ≤ 900px : TABLETTE PORTRAIT ───────────────── */
+@media screen and (max-width: 900px) {
+    :root {
+        --font-size-m: 1rem;
+        --font-size-l: 1.3rem;
+        --font-size-xl: 1.5rem;
+        --font-size-xxl: 1.8rem;
+    }
+
+    .about-section .section-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-section .about-details {
+        max-width: 100%;
+    }
+
+    .hero {
+        padding: 30px 15px;
+    }
+}
+
+/* ───────────────────────── ≤ 768px : MOBILE LARGE ─────────────────────── */
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        display: none;
+        background-color: #fff;
+        margin-top: 20px;
+    }
+    nav ul.active {
+        display: flex;
+    }
+    nav ul li {
+        margin: 10px 0;
+        text-align: left;
+        width: 100%;
+    }
+    nav .menu-icon {
+        display: block;
+        margin-left: auto;
+    }
+
+    .text h3 {
+        font-size: 32px;
+        line-height: 1.4;
+    }
+    .text {
+        text-align: center;
+    }
+    .text .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 40px 20px;
+    }
+
+    /* FIX : sur mobile large, on passe carrément à 1 colonne pour éviter
+       tout risque de chevauchement, avec un espacement généreux et
+       régulier (gap), jamais de marge négative */
+    .menu-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-p {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .container-p h1,
+    .container-p h3 {
+        font-size: 20px;
+    }
+    .icon {
+        font-size: 35px;
+    }
+}
+
+/* ───────────────────────── ≤ 640px : MOBILE STANDARD ──────────────────── */
+@media screen and (max-width: 640px) {
+    .footer-section .section-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    .contact-section .section-content {
+        flex-direction: column;
+    }
+}
+
+/* ───────────────────────── ≤ 480px : PETIT MOBILE ─────────────────────── */
+@media screen and (max-width: 480px) {
+    .technologies {
+        padding: 20px 8px 35px;
+    }
+
+    .technologies h2 {
+        font-size: 20px;
+    }
+
+    .subtitle2 {
+        margin: 12px 0 25px;
+        font-size: 12px;
+    }
+
+    .titre {
+        margin: 10px 0;
+    }
+
+    .swiper {
+        width: 100%;
+        padding: 0 28px;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 32px;
+        height: 32px;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        font-size: 16px;
+    }
+
+    .menu-item {
+        width: 100%;
+    }
+}

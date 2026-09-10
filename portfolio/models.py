@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 class MessageContact(models.Model):
     objects = None
     nom = models.CharField(max_length=100)
@@ -18,7 +16,7 @@ class MessageContact(models.Model):
         return self.nom
 
 
-# ✅ Modèle Catégorie
+# Modèle Catégorie
 class Projet(models.Model):
     objects = None
     titre = models.CharField(max_length=255)
@@ -27,7 +25,7 @@ class Projet(models.Model):
     lien = models.URLField(blank=True)
 
     class Meta:
-        ordering = ['titre'] #LIFVIEW
+        ordering = ['titre'] 
         verbose_name ="Projet"
         verbose_name_plural = "Projets"
 
@@ -39,7 +37,7 @@ class Projet(models.Model):
 
 from django.urls import reverse
 
-# ✅ Modèle Services
+# Modèle Services
 def get_absolute_url():
     return reverse('home')
 

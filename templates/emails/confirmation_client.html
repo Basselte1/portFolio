@@ -1,0 +1,183 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation de votre message</title>
+</head>
+
+<body style="
+    margin:0;
+    padding:0;
+    background:#f4f6f8;
+    font-family:Arial, Helvetica, sans-serif;
+">
+
+<table width="100%" cellpadding="0" cellspacing="0"
+       style="background:#f4f6f8; padding:30px 10px;">
+
+    <tr>
+        <td align="center">
+
+            <table width="600" cellpadding="0" cellspacing="0"
+                   style="
+                   max-width:600px;
+                   width:100%;
+                   background:#ffffff;
+                   border-radius:10px;
+                   overflow:hidden;
+                   ">
+
+                <!-- Header -->
+                <tr>
+                    <td style="
+                        background:#0d6efd;
+                        padding:30px;
+                        text-align:center;
+                        color:white;
+                    ">
+
+                        <h1 style="
+                            margin:0;
+                            font-size:25px;
+                        ">
+                            {{ nom_developpeur }}
+                        </h1>
+
+                        <p style="
+                            margin:10px 0 0;
+                            font-size:14px;
+                        ">
+                            Confirmation de réception de votre requete
+                        </p>
+
+                    </td>
+                </tr>
+
+
+                <!-- Contenu -->
+                <tr>
+                    <td style="padding:35px;">
+
+                        <h2 style="
+                            color:#333333;
+                            margin-top:0;
+                        ">
+                            Bonjour M./Mme {{ nom }},
+                        </h2>
+
+                        <p style="
+                            color:#555555;
+                            line-height:1.7;
+                            font-size:15px;
+                        ">
+                            Votre message a été bien reçu.
+                        </p>
+
+                        <!-- Message confirmation -->
+                        <div style="
+                            margin:25px 0;
+                            padding:20px;
+                            background:#f8f9fa;
+                            border-left:4px solid #198754;
+                        ">
+
+                            <p style="
+                                margin:0;
+                                color:#555555;
+                                line-height:1.6;
+                            ">
+                            votre demande sera traitée dans les meilleurs délais.
+                            </p>
+
+                        </div>
+
+
+                        <!-- Coordonnées -->
+                        <p style="
+                            color:#555555;
+                            line-height:1.6;
+                        ">
+                            <strong>Email :</strong> {{ email_developpeur }}<br>
+
+                            <strong>Téléphone :</strong>
+                            {{ telephone_developpeur }}
+                        </p>
+
+
+                        <p style="
+                            margin-top:30px;
+                            color:#555555;
+                            line-height:1.6;
+                        ">
+                            Merci pour votre confiance.
+                        </p>
+
+                        <div style="text-align:center; margin:30px">
+                            <a href="tel:{{ telephone_developpeur }}"
+                            style="
+                                display:inline-block;
+                                padding:13px 25px ;
+                                background-color: #198754; 
+                                color:#ffffff;
+                                text-decoration: none;
+                                border-radius: 6px;
+                                font-weight: bold;
+                                font-size: 15px;">
+                                📞 Appeler
+                            </a>
+                        </div>
+                       
+
+                        <p style="
+                            color:#333333;
+                            font-weight:bold;
+                        ">
+                            {{ nom_developpeur }}
+                            Développeur Python & Concepteur de solutions web
+                        </p>
+
+                    </td>
+                </tr>
+
+
+                <!-- Footer -->
+                <tr>
+                    <td style="
+                        background:#f1f3f5;
+                        padding:20px;
+                        text-align:center;
+                    ">
+
+                        <p style="
+                            margin:0;
+                            color:#777777;
+                            font-size:13px;
+                        ">
+                            © {{ annee }} {{ nom_developpeur }}
+                        </p>
+
+                        <p style="
+                            margin:8px 0 0;
+                            color:#999999;
+                            font-size:12px;
+                        ">
+                            Ceci est un message automatique,
+                            merci de ne pas y répondre directement.
+                        </p>
+
+                    </td>
+                </tr>
+
+            </table>
+
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>
+```
