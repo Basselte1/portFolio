@@ -24,14 +24,10 @@ EMAIL_HOST = config('EMAIL_HOST', default='smtp.gmail.com')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
 EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
-EMAIL_BACKEND = config(
-    'EMAIL_BACKEND',
-    default='django.core.mail.backends.smtp.EmailBackend',
-)
-DEFAULT_FROM_EMAIL = config(
-    'DEFAULT_FROM_EMAIL',
-    default=EMAIL_HOST_USER or 'webmaster@localhost',
-)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default=EMAIL_HOST_USER)
+
 ADMIN_EMAIL = config('ADMIN_EMAIL', default=EMAIL_HOST_USER)
 
 NOM_DEVELOPPEUR = "AdamDev"
@@ -112,7 +108,7 @@ DATABASES = {
     'default': dj_database_url.parse(
         DATABASE_URL,
         conn_max_age=600,
-        ssl_require=DATABASE_URL.startswith(('postgres://', 'postgresql://')),
+        ssl_require=True,
     )
 }
 
