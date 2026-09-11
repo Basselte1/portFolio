@@ -28,7 +28,7 @@ def home(request):
         nom = request.POST.get('nom')
         adresse = request.POST.get('adresse')
         email = request.POST.get('email')
-        telephone = request.POST.get('telephone')  # si tu ajoutes ce champ
+        telephone = request.POST.get('telephone')  
         message = request.POST.get('message')
 
         print("Données reçues :", nom, email, message, adresse, telephone)  # Debug
@@ -36,6 +36,7 @@ def home(request):
         if not nom or not email or not message or not adresse or not telephone:
             messages.error(request, " Veillez remplir tous les champs.")
             return render(request, 'index.html',{'services' : services,'date':date}) 
+        
         # Enregistrement dans la base de données
         MessageContact.objects.create(
             nom=nom,
