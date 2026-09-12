@@ -637,7 +637,7 @@ h3 {
 
 /* ═══════════════════════════════════════════════════════════════
    Contact section
-   ═══════════════════════════════════════════════════════════════ 
+   ═══════════════════════════════════════════════════════════════ */
 .contact-section {
     padding: 50px 0 100px;
     background: var(--light-pink-color);
@@ -645,7 +645,7 @@ h3 {
 .contact-section .section-content {
     display: flex;
     flex-wrap: wrap;             /* CHANGEMENT : nowrap => wrap pour tablette/mobile */
-  /*  gap: 32px;
+    gap: 32px;
     align-items: flex-start;
     justify-content: center;
     background-color: #e2e2e2;
@@ -664,7 +664,7 @@ h3 {
     margin: 20px 0;
     align-items: center;
 }
-.contact-form {
+/*.contact-form {
     flex: 1 1 300px;
     min-width: 280px;
     max-width: 500px;
