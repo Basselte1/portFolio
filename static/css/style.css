@@ -637,7 +637,7 @@ h3 {
 
 /* ═══════════════════════════════════════════════════════════════
    Contact section
-   ═══════════════════════════════════════════════════════════════ */
+   ═══════════════════════════════════════════════════════════════ 
 .contact-section {
     padding: 50px 0 100px;
     background: var(--light-pink-color);
@@ -645,7 +645,7 @@ h3 {
 .contact-section .section-content {
     display: flex;
     flex-wrap: wrap;             /* CHANGEMENT : nowrap => wrap pour tablette/mobile */
-    gap: 32px;
+  /*  gap: 32px;
     align-items: flex-start;
     justify-content: center;
     background-color: #e2e2e2;
@@ -694,8 +694,56 @@ h3 {
 .contact-form .submit-button:hover {
     color: var(--primary-color);
     background: transparent;
+}*/
+
+/* ═══════════════════════════════════════════════════════════════
+   Contact section — actions rapides (remplace le formulaire)
+   ═══════════════════════════════════════════════════════════════ */
+.contact-actions {
+    flex: 1 1 300px;
+    min-width: 280px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
 }
 
+.contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 50px;
+    padding: 0 20px;
+    color: var(--white-color);
+    background: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius-m);
+    font-size: var(--font-size-n);
+    font-weight: var(--font-weight-medium);
+    transition: 0.3s ease;
+}
+
+.contact-btn i {
+    font-size: var(--font-size-l);
+}
+
+.contact-btn:hover {
+    color: var(--primary-color);
+    background: transparent;
+}
+
+/* Couleur distincte pour WhatsApp, cohérente avec le reste du thème */
+.contact-btn.whatsapp {
+    background: #25D366;
+    border-color: #25D366;
+    color: var(--white-color);
+}
+.contact-btn.whatsapp:hover {
+    background: transparent;
+    color: #25D366;
+}
 /* ═══════════════════════════════════════════════════════════════
    Footer
    ═══════════════════════════════════════════════════════════════ */
