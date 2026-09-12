@@ -295,9 +295,10 @@
             </li>
         </ul>
 
-        <form id="contact-form" method="POST" action="{% url 'home' %}" class="contact-form">
-             {% csrf_token %} <!--protection csrf_token-->
-            <label>
+
+        <!--form id="contact-form" method="POST" action="{% url 'home' %}" class="contact-form"-->
+            <!--protection csrf_token-->
+            <!--label>
                 <input type="text" name="nom" placeholder=" votre nom complet" class="form-input" required>
             </label>
             <label>
@@ -315,8 +316,21 @@
                 <textarea name="message" placeholder="votre message" class="form-input" required></textarea>
             </label>
             <button type="submit" class="submit-button">Envoyer</button>
-        </form>
-
+        </form-->
+        <div class="contact-actions">
+            <a href="mailto:edjabeadam1@gmail.com?subject=Demande%20de%20contact" class="contact-btn">
+                <i class="fa-regular fa-envelope"></i> Envoyer un email
+            </a>
+            <a href="https://wa.me/237652214151" target="_blank" rel="noopener noreferrer" class="contact-btn whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Discuter sur WhatsApp
+            </a>
+            <a href="tel:+237652214151" class="contact-btn">
+                <i class="fa-solid fa-phone"></i> Appeler
+            </a>
+            <a href="https://cm.linkedin.com/in/essame-adam-1242b1338" target="_blank" rel="noopener noreferrer" class="contact-btn">
+                <i class="fa-brands fa-linkedin"></i> Contacter sur LinkedIn
+            </a>
+        </div>
     </div>
 </section>
 
